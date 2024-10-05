@@ -39,8 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken',
 
     'albums',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +130,14 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+
+AUTH_USER_MODEL = "users.User"

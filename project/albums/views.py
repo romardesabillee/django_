@@ -8,12 +8,14 @@ from .serializers import (
     AlbumSerializer,
     MusicianSerializer
 )
+from rest_framework.permissions import IsAuthenticated
 
 
 class AlbumView(ModelViewSet):
     queryset = Albums.objects.all()
     serializer_class = AlbumSerializer
     lookup_field = 'id'
+    permission_classes = (IsAuthenticated, )
 
     # def list(self, request, *args, **kwargs):
     #     album = Albums.objects.first()
@@ -39,3 +41,4 @@ class MusicianView(ModelViewSet):
     queryset = Musician.objects.all()
     serializer_class = MusicianSerializer
     lookup_field = 'id'
+    permission_classes = (IsAuthenticated, )
