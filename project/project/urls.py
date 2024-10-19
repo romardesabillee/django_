@@ -6,5 +6,6 @@ urlpatterns = [
     
     path('api/', include([
         path('albums/', include('albums.urls')),
+        path('users/', include('users.urls')),
     ]))
 ]
